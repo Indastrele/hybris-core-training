@@ -1,0 +1,3 @@
+INSERT_UPDATE ConcertType;code[unique=true];name[lang=en]
+;OPENAIR;Openair
+;INDOOR;Indoor

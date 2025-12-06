@@ -1,0 +1,2 @@
+INSERT_UPDATE Band;code[unique=true];name;history;albumSales;membersToInstruments(key, value)[map-delimiter=|];members;types(code)
+;B001;Twenty One Pilots;American duo from Columbus, Ohio;10000000;Tyler Joseph->Bass|Joshua Dun->Drums;Tyler Joseph, Joshua Dun;POP, ROCK, HIPHOP

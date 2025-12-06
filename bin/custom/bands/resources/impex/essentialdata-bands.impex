@@ -1,0 +1,5 @@
+INSERT_UPDATE MusicType;code[unique=true];name[lang=en]
+;ROCK;Rock
+;RNB;RnB
+;POP;Pop
+;HIPHOP;Hip-Hop
