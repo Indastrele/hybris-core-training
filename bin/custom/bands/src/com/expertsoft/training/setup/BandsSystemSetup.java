@@ -5,28 +5,28 @@ package com.expertsoft.training.setup;
 
 import static com.expertsoft.training.constants.BandsConstants.PLATFORM_LOGO_CODE;
 
+import com.expertsoft.training.service.BandsLogoService;
 import de.hybris.platform.core.initialization.SystemSetup;
 
 import java.io.InputStream;
 
 import com.expertsoft.training.constants.BandsConstants;
-import com.expertsoft.training.service.BandsService;
 
 
 @SystemSetup(extension = BandsConstants.EXTENSIONNAME)
 public class BandsSystemSetup
 {
-	private final BandsService bandsService;
+	private final BandsLogoService bandsLogoService;
 
-	public BandsSystemSetup(final BandsService bandsService)
+	public BandsSystemSetup(final BandsLogoService bandsLogoService)
 	{
-		this.bandsService = bandsService;
+		this.bandsLogoService = bandsLogoService;
 	}
 
 	@SystemSetup(process = SystemSetup.Process.INIT, type = SystemSetup.Type.ESSENTIAL)
 	public void createEssentialData()
 	{
-		bandsService.createLogo(PLATFORM_LOGO_CODE);
+		bandsLogoService.createLogo(PLATFORM_LOGO_CODE);
 	}
 
 	private InputStream getImageStream()

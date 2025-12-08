@@ -9,7 +9,7 @@
 <items 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
 			xsi:noNamespaceSchemaLocation="items.xsd">
 	<enumtypes>
-		<enumtype code="ConcertType" autocreate="true" generate="false" dynamic="false">
+		<enumtype code="ConcertType" autocreate="true" generate="true" dynamic="false">
 			<value code="OPENAIR"/>
 			<value code="INDOOR"/>
 		</enumtype>

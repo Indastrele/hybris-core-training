@@ -3,7 +3,7 @@
  */
 package com.expertsoft.training.service;
 
-public interface BandsService
+public interface BandsLogoService
 {
 	String getHybrisLogoUrl(String logoCode);
 

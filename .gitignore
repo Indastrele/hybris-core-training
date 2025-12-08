@@ -9,22 +9,15 @@
 /bin/custom/suppliers
 /bin/custom/sweets
 
-/bin/custom/bands/classes
-/bin/custom/bands/gensrc
-/bin/custom/bands/.externalToolBuilders
-/bin/custom/bands/.settings
-/bin/custom/bands/.classpath
-/bin/custom/bands/.project
-/bin/custom/bands/platformhome.properties
-
-/bin/custom/concerts/classes
-/bin/custom/concerts/gensrc
-/bin/custom/concerts/.externalToolBuilders
-/bin/custom/concerts/.settings
-/bin/custom/concerts/.classpath
-/bin/custom/concerts/.project
-/bin/custom/concerts/platformhome.properties
-
+/bin/custom/*/classes
+/bin/custom/*/gensrc
+/bin/custom/*/.externalToolBuilders
+/bin/custom/*/.settings
+/bin/custom/*/.classpath
+/bin/custom/*/.project
+/gin/custom/*/.springBeans
+/bin/custom/*/platformhome.properties
+/bin/custom/*/idea-module-files
 /config/*
 
 !/config/localextensions.xml

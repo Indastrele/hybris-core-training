@@ -45,6 +45,6 @@ public class BandsTest extends HybrisJUnit4TransactionalTest
 	public void testBands()
 	{
 		final boolean testTrue = true;
-		assertThat(testTrue).isTrue();
+		assertTrue(testTrue);
 	}
 }

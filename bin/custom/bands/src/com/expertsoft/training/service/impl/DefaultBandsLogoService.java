@@ -3,6 +3,7 @@
  */
 package com.expertsoft.training.service.impl;
 
+import com.expertsoft.training.service.BandsLogoService;
 import de.hybris.platform.catalog.model.CatalogUnawareMediaModel;
 import de.hybris.platform.core.model.media.MediaModel;
 import de.hybris.platform.servicelayer.exceptions.SystemException;
@@ -18,12 +19,10 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Required;
 
-import com.expertsoft.training.service.BandsService;
 
-
-public class DefaultBandsService implements BandsService
+public class DefaultBandsLogoService implements BandsLogoService
 {
-	private static final Logger LOG = LoggerFactory.getLogger(DefaultBandsService.class);
+	private static final Logger LOG = LoggerFactory.getLogger(DefaultBandsLogoService.class);
 
 	private MediaService mediaService;
 	private ModelService modelService;
@@ -74,7 +73,7 @@ public class DefaultBandsService implements BandsService
 
 	private InputStream getImageStream()
 	{
-		return DefaultBandsService.class.getResourceAsStream("/bands/sap-hybris-platform.png");
+		return DefaultBandsLogoService.class.getResourceAsStream("/bands/sap-hybris-platform.png");
 	}
 
 	@Required
