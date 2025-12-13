@@ -16,8 +16,8 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 @UnitTest
-public class DefaultBandFacadeUnitTest
-{
+public class DefaultBandFacadeUnitTest {
+
     private DefaultBandFacade bandFacade;
     private ModelService modelService;
     private BandService bandService;
@@ -44,6 +44,7 @@ public class DefaultBandFacadeUnitTest
         band.setHistory(BAND_HISTORY);
         return band;
     }
+
     @Before
     public void setUp()
     {
@@ -79,6 +80,7 @@ public class DefaultBandFacadeUnitTest
         Assert.assertEquals(band.getAlbumSales(), dto.get(0).getAlbumsSold());
         Assert.assertEquals(band.getHistory(), dto.get(0).getDescription());
     }
+
     @Test
     public void testGetBand()
     {

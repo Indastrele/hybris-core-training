@@ -1,11 +1,11 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
     <title>Tour</title>
 </head>
 <body>
-    <a onclick="history.back()">&larr; Back to the band</a>
+    <a style="cursor: pointer; color: blue; text-decoration: blue underline;" onclick="history.back()">&larr; Back to the band</a>
     <h1>${tour.tourName}</h1>
     <hr>
     <p>${tour.description}</p>

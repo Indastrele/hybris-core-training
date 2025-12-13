@@ -27,6 +27,18 @@
         <property name="flexibleSearchService" ref="flexibleSearchService"/>
     </bean>
 
+    <bean id="tourSummaryDataPopulator" class="com.expertsoft.training.populators.TourSummaryDataPopulator">
+
+    </bean>
+
+    <bean id="bandPopulator" class="com.expertsoft.training.populators.BandPopulator">
+        <property name="tourSummaryDataPopulator" ref="tourSummaryDataPopulator"/>
+    </bean>
+
+    <bean id="bandConverter" class="com.expertsoft.training.converters.BandConverter">
+        <property name="bandPopulator" ref="bandPopulator"/>
+    </bean>
+
     <alias name = "defaultBandService" alias = "bandService" />
     <bean id = "defaultBandService" class = "com.expertsoft.training.service.impl.DefaultBandService" >
         <property name = "bandDao" ref = "bandDao" />
@@ -35,5 +47,6 @@
     <alias name = "defaultBandFacade" alias = "bandFacade" />
     <bean id = "defaultBandFacade" class ="com.expertsoft.training.facades.impl.DefaultBandFacade" >
         <property name = "bandService" ref = "bandService" />
+        <property name = "bandConverter" ref = "bandConverter" />
     </bean>
 </beans>

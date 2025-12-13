@@ -15,6 +15,7 @@ import static org.mockito.Mockito.when;
 
 @UnitTest
 public class DefaultBandServiceUnitTest {
+
     private DefaultBandService bandService;
     private BandDao bandDao;
     private BandModel bandModel;

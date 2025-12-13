@@ -21,8 +21,8 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
 @IntegrationTest
-public class DefaultBandFacadeIntegrationTest extends ServicelayerTransactionalTest
-{
+public class DefaultBandFacadeIntegrationTest extends ServicelayerTransactionalTest {
+
     @Resource
     private BandFacade bandFacade;
     @Resource
@@ -37,6 +37,7 @@ public class DefaultBandFacadeIntegrationTest extends ServicelayerTransactionalT
     private static final String BAND_HISTORY = "New contemporary, 7-piece Jaz unit from London, formed in 2015";
     /** Albums sold by test band. */
     private static final Long ALBUMS_SOLD = 10L;
+
     @Before
     public void setUp()
     {

@@ -18,6 +18,8 @@
 /gin/custom/*/.springBeans
 /bin/custom/*/platformhome.properties
 /bin/custom/*/idea-module-files
+/bin/custom/*/web/webroot/WEB-INF/classes
+/bin/custom/*/.idea
 /config/*
 
 !/config/localextensions.xml

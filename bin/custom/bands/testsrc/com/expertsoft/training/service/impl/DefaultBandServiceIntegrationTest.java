@@ -20,6 +20,7 @@ import static org.junit.Assert.assertNotNull;
 
 @IntegrationTest
 public class DefaultBandServiceIntegrationTest extends ServicelayerTest {
+
     @Resource
     private BandService bandService;
     @Resource

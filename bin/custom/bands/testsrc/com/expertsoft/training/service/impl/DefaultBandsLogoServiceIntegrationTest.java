@@ -22,8 +22,8 @@ public class DefaultBandsLogoServiceIntegrationTest {
      * in mind that by default it assumes that annotated field name matches the Spring Bean ID.
      */
     @IntegrationTest
-    public class DefaultBandsServiceIntegrationTest extends ServicelayerBaseTest
-    {
+    public class DefaultBandsServiceIntegrationTest extends ServicelayerBaseTest {
+
         @Resource
         private BandsLogoService bandsLogoService;
         @Resource

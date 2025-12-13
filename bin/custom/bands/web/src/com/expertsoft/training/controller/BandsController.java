@@ -13,19 +13,23 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 
 @Controller
-public class BandsController
-{
-	@Autowired
-	private BandFacade bandFacade;
-	@Autowired
-	private CatalogVersionService catalogVersionService;
+public class BandsController {
 
 	private static final String CATALOG_ID = "concertToursProductCatalog";
 	private static final String CATALOG_VERSION_NAME = "Online";
 
+	private final BandFacade bandFacade;
+	private final CatalogVersionService catalogVersionService;
+
+	@Autowired
+	public BandsController(BandFacade bandFacade, CatalogVersionService catalogVersionService) {
+		this.bandFacade = bandFacade;
+		this.catalogVersionService = catalogVersionService;
+	}
+
 	@GetMapping(value = "/")
 	public String getBandsList(final ModelMap model) {
-
+		catalogVersionService.setSessionCatalogVersion(CATALOG_ID, CATALOG_VERSION_NAME);
 		model.addAttribute("bands", bandFacade.getBands());
 		return "bandList";
 	}

@@ -34,6 +34,7 @@ public class DefaultBandDaoIntegrationTest extends ServicelayerTransactionalTest
     private static final String BAND_HISTORY = "All female rock band formed in Munich in the late 1990s";
     /** Albums sold */
     private static final Long ALBUMS_SOLD = 1000L;
+
     @Before
     public void setUp() throws Exception {
         try {
@@ -42,6 +43,7 @@ public class DefaultBandDaoIntegrationTest extends ServicelayerTransactionalTest
             Thread.sleep(TimeUnit.SECONDS.toMillis(1));
         } catch (InterruptedException exc) {}
     }
+
     @Test
     public void bandDAOTest()
     {
@@ -70,6 +72,7 @@ public class DefaultBandDaoIntegrationTest extends ServicelayerTransactionalTest
         Assert.assertEquals("Retrieved Band's albumSales attribute incorrect", ALBUMS_SOLD, bandsByCode.get(0).getAlbumSales());
         Assert.assertEquals("Retrieved Band's history attribute incorrect", BAND_HISTORY, bandsByCode.get(0).getHistory());
     }
+
     @Test
     public void testFindBands_EmptyStringParam()
     {
