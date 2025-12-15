@@ -8,6 +8,7 @@ import org.junit.Test;
 
 import java.util.Collections;
 import java.util.List;
+import java.util.Locale;
 
 import static org.mockito.Mockito.mock;
 import static org.junit.Assert.assertEquals;
@@ -23,8 +24,7 @@ public class DefaultBandServiceUnitTest {
     private static final String BAND_NAME = "Singers All";
     private static final String BAND_HISTORY = "Medieval choir formed in 2001, based in Munich famous for authentic monastic chants";
     @Before
-    public void setUp()
-    {
+    public void setUp() {
         bandService = new DefaultBandService();
 
         bandDao = mock(BandDao.class);
@@ -34,12 +34,11 @@ public class DefaultBandServiceUnitTest {
         bandModel.setCode(BAND_CODE);
         bandModel.setName(BAND_NAME);
         bandModel.setAlbumSales(1000L);
-        bandModel.setHistory(BAND_HISTORY);
+        bandModel.setHistory(BAND_HISTORY, Locale.ENGLISH);
     }
 
     @Test
-    public void testGetAllBands()
-    {
+    public void testGetAllBands() {
         final List<BandModel> bandModels = Collections.singletonList(bandModel);
 
         when(bandDao.findBands()).thenReturn(bandModels);
@@ -50,8 +49,7 @@ public class DefaultBandServiceUnitTest {
         assertEquals("And should equals what the mock returned", bandModel, result.get(0));
     }
     @Test
-    public void testGetBand()
-    {
+    public void testGetBand() {
         when(bandDao.findBandsByCode(BAND_CODE)).thenReturn(Collections.singletonList(bandModel));
 
         final BandModel result = bandService.getBandForCode(BAND_CODE);

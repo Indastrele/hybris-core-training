@@ -43,8 +43,9 @@
 				<attribute qualifier="name" type="java.lang.String">
 					<description>name of band</description>
 					<persistence type="property" />
+					<modifiers optional="false" unique="true" />
 				</attribute>
-				<attribute qualifier="history" type="java.lang.String">
+				<attribute qualifier="history" type="localized:java.lang.String">
 					<description>history of band</description>
 					<persistence type="property" />
 				</attribute>
@@ -58,6 +59,42 @@
 				</attribute>
 				<attribute qualifier="membersToInstruments" type="Members2Instrument">
 					<persistence type="property"/>
+				</attribute>
+				<attribute qualifier="image" type="MediaContainer">
+					<description>picture of band in different formats</description>
+					<persistence type="property" />
+				</attribute>
+			</attributes>
+		</itemtype>
+
+		<itemtype generate="true" code="News" autocreate="true">
+			<deployment table="News" typecode="30270" />
+			<attributes>
+				<attribute qualifier="date" type="java.util.Date">
+					<description>date of news item</description>
+					<persistence type="property" />
+				</attribute>
+				<attribute qualifier="headline" type="java.lang.String">
+					<description>short headline for the news item</description>
+					<persistence type="property" />
+				</attribute>
+				<attribute qualifier="content" type="java.lang.String">
+					<description>fuller description of the news item</description>
+					<persistence type="property" />
+				</attribute>
+			</attributes>
+		</itemtype>
+
+		<itemtype code="NotLoremIpsumConstraint" extends="AttributeConstraint"
+				  autocreate="true" generate="true">
+			<description>Custom constraint which checks for Lorem Ipsum text.</description>
+			<attributes>
+				<attribute qualifier="annotation" type="java.lang.Class"
+						   redeclare="true">
+					<modifiers write="false" initial="true" optional="false" />
+					<defaultvalue>
+						com.expertsoft.training.constraints.NotLoremIpsum.class
+					</defaultvalue>
 				</attribute>
 			</attributes>
 		</itemtype>

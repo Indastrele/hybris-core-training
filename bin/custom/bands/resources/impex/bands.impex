@@ -1,0 +1,60 @@
+# ImpEx for Importing Bands into Little Concert Tours Store
+$productCatalog=concertoursProductCatalog
+$catalogVersion=catalogversion(catalog(id[default=$productCatalog]),version[default='Online'])[unique=true,default=$productCatalog:Online]
+$medias=medias(code, $catalogVersion)
+$siteResource=jar:com.expertsoft.training.constants.BandsConstants&/bands/bandimages
+
+# Product catalog
+INSERT_UPDATE Catalog;id[unique=true]
+;$productCatalog
+
+# Product catalog version
+INSERT_UPDATE CatalogVersion;catalog(id)[unique=true];version[unique=true];active;languages(isoCode);readPrincipals(uid)
+;$productCatalog;Online;true;en;employeegroup
+
+INSERT_UPDATE Media;mediaFormat(qualifier);code[unique=true];@media[translator=de.hybris.platform.impex.jalo.media.MediaDataTranslator];mime[default='image/jpeg'];$catalogVersion
+;bandList;rockSmall.jpg;$siteResource/rockSmall.jpg;;
+;bandDetail;rockBig.jpg;$siteResource/rockBig.jpg;;
+;bandList;danceSmall.jpg;$siteResource/danceSmall.jpg;;
+;bandDetail;danceBig.jpg;$siteResource/danceBig.jpg;;
+;bandList;jazzSmall.jpg;$siteResource/jazzSmall.jpg;;
+;bandDetail;jazzBig.jpg;$siteResource/jazzBig.jpg;;
+;bandList;bigbandSmall.jpg;$siteResource/bigbandSmall.jpg;;
+;bandDetail;bigbandBig.jpg;$siteResource/bigbandBig.jpg;;
+;bandList;omphaSmall.jpg;$siteResource/omphaSmall.jpg;;
+;bandDetail;omphaBig.jpg;$siteResource/omphaBig.jpg;;
+;bandList;orchestraSmall.jpg;$siteResource/orchestraSmall.jpg;;
+;bandDetail;orchestraBig.jpg;$siteResource/orchestraBig.jpg;;
+
+INSERT_UPDATE MediaContainer;qualifier[unique=true];$medias;$catalogVersion
+;yRockImage;rockSmall.jpg,rockBig.jpg;
+;yBandImage;danceSmall.jpg,danceBig.jpg;
+;yJazzImage;jazzSmall.jpg,jazzBig.jpg;
+;BannedImage;bigbandSmall.jpg,bigbandBig.jpg;
+;SirkenImage;omphaSmall.jpg,omphaBig.jpg;
+;TheChoirImage;orchestraSmall.jpg,orchestraBig.jpg;
+
+INSERT_UPDATE MusicType;code[unique=true];name[lang=en]
+;ROCK;Rock
+;RNB;RnB
+;POP;Pop
+;HIPHOP;Hip-Hop
+;JAZZ;Jazz
+;CLASSICAL;Classical
+;GOSPEL;Gospel
+;CHORAL;Choral
+;SIXTIES;Sixties
+;SEVENTIES;Seventies
+;EIGHTIES;Eighties
+;NINETIES;Nineties
+;MALE_VOCALS;Male vocals
+;FEMALE_VOCALS;Female vocals
+
+INSERT_UPDATE Band;code[unique=true];name;albumSales;types(code);image(qualifier)
+;A001;yRock;1000000;ROCK, MALE_VOCALS;yRockImage
+;A006;yBand;;RNB, FEMALE_VOCALS;yBandImage
+;A003;yJazz;7;JAZZ, FEMALE_VOCALS, MALE_VOCALS;yJazzImage
+;A004;Banned;427;GOSPEL, FEMALE_VOCALS;BannedImage
+;A002;Sirken;2000;NINETIES;SirkenImage
+;A005;The Choir;49000;CHORAL, MALE_VOCALS;TheChoirImage
+;A007;The Quiet;1200;CLASSICAL;TheChoirImage

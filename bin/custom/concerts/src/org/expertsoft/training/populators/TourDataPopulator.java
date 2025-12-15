@@ -3,6 +3,7 @@ package org.expertsoft.training.populators;
 import de.hybris.platform.converters.Populator;
 import de.hybris.platform.core.model.product.ProductModel;
 import de.hybris.platform.servicelayer.dto.converter.ConversionException;
+import de.hybris.platform.servicelayer.i18n.I18NService;
 import de.hybris.platform.variants.model.VariantProductModel;
 import org.expertsoft.training.data.ConcertSummaryData;
 import org.expertsoft.training.data.TourData;
@@ -15,6 +16,7 @@ import java.util.List;
 public class TourDataPopulator implements Populator<ProductModel, TourData> {
 
     private Populator<ConcertModel, ConcertSummaryData> concertSummaryDataPopulator;
+    private I18NService i18NService;
 
     @Override
     public void populate(ProductModel productModel, TourData tourData) throws ConversionException {

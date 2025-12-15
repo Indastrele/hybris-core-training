@@ -1,16 +1,12 @@
 <hybrisconfig xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xsi:noNamespaceSchemaLocation='../bin/platform/resources/schemas/extensions.xsd'>
   <extensions>
     <path dir='${HYBRIS_BIN_DIR}' autoload='false' />
-    <extension name="datahubadapter"/>
-    <extension name='datahubclient' />
+    <!-- Preinstalled extensions -->
     <extension name='platformbackoffice' />
-    <extension name='ybackoffice' />
-    <extension name='yacceleratorbackoffice' />
-    <extension name='yacceleratorcockpits' />
-    <extension name='yacceleratorcore' />
-    <extension name='admincockpit' />
-    <extension name='productcockpit' />
-    <extension name='cockpit' />
+
+    <!-- ext-template -->
+    <extension name="yempty" />
+    <extension name="yhacext" />
 
     <!-- Custom extensions -->
     <extension dir='../custom/bands' />

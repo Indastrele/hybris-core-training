@@ -5,6 +5,7 @@ import com.expertsoft.training.facades.BandFacade;
 import com.expertsoft.training.model.BandModel;
 import de.hybris.bootstrap.annotations.IntegrationTest;
 import de.hybris.platform.core.Registry;
+import de.hybris.platform.impex.jalo.ImpExException;
 import de.hybris.platform.servicelayer.ServicelayerTransactionalTest;
 import de.hybris.platform.servicelayer.exceptions.UnknownIdentifierException;
 import de.hybris.platform.servicelayer.model.ModelService;
@@ -39,13 +40,13 @@ public class DefaultBandFacadeIntegrationTest extends ServicelayerTransactionalT
     private static final Long ALBUMS_SOLD = 10L;
 
     @Before
-    public void setUp()
-    {
+    public void setUp() throws ImpExException {
         try {
             Thread.sleep(TimeUnit.SECONDS.toMillis(1));
             new JdbcTemplate(Registry.getCurrentTenant().getDataSource()).execute("CHECKPOINT");
             Thread.sleep(TimeUnit.SECONDS.toMillis(1));
         } catch (InterruptedException exc) {}
+        importCsv("/impex/essentialdata-mediaformats.impex", "UTF-8");
         // This instance of a BandModel will be used by the tests
         bandModel = modelService.create(BandModel.class);
         bandModel.setCode(BAND_CODE);
@@ -74,8 +75,7 @@ public class DefaultBandFacadeIntegrationTest extends ServicelayerTransactionalT
      * Tests and demonstrates the Facade's methods
      */
     @Test
-    public void testBandFacade()
-    {
+    public void testBandFacade() {
         List<BandData> bandListData = bandFacade.getBands();
         assertNotNull(bandListData);
         final int size = bandListData.size();

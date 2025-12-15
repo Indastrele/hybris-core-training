@@ -18,6 +18,7 @@ import java.util.Set;
 public class BandPopulator implements Populator<BandModel, BandData> {
 
     private Populator<ProductModel, TourSummaryData> tourSummaryDataPopulator;
+
     @Override
     public void populate(BandModel bandModel, BandData bandData) throws ConversionException {
         bandData.setId(bandModel.getCode());
@@ -55,6 +56,7 @@ public class BandPopulator implements Populator<BandModel, BandData> {
 
         return types.stream().map(MusicType::getCode).toList();
     }
+
 
     @Required
     public void setTourSummaryDataPopulator(Populator<ProductModel, TourSummaryData> tourSummaryDataPopulator) {

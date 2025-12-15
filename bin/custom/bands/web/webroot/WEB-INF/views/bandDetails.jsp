@@ -7,6 +7,7 @@
 <body>
     <a href="${pageContext.request.contextPath}/">&larr; Back to all bands</a>
     <br>
+    <p><img src="${band.imageURL}"/></p>
     <h1>${band.name}</h1>
     <hr>
     <p>${band.description}</p>

@@ -8,7 +8,7 @@
 <ul>
     <c:forEach var="band" items="${bands}">
         <li>
-            <a href="${pageContext.request.contextPath}/${band.id}">${band.name}</a>
+            <a href="${pageContext.request.contextPath}/${band.id}"><img src="${band.imageURL}" /> ${band.name}</a>
         </li>
     </c:forEach>
 </ul>

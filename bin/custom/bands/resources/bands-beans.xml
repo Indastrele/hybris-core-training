@@ -23,6 +23,7 @@
 		<property name="members" type="java.util.List&lt;String&gt;"/>
 		<property name="membersToInstruments" type="java.util.Map&lt;String,String&gt;"/>
 		<property name = "tours" type="java.util.List&lt;org.expertsoft.training.data.TourSummaryData&gt;"/>
+		<property name="imageURL" type="String" />
 	</bean>
 	<bean class = "org.expertsoft.training.data.ConcertSummaryData">
 		<description >Data object for a concert summary</description>
