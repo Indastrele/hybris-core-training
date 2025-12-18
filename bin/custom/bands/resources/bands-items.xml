@@ -70,6 +70,9 @@
 		<itemtype generate="true" code="News" autocreate="true">
 			<deployment table="News" typecode="30270" />
 			<attributes>
+				<attribute qualifier="code" type="java.lang.String">
+					<persistence type="property" />
+				</attribute>
 				<attribute qualifier="date" type="java.util.Date">
 					<description>date of news item</description>
 					<persistence type="property" />

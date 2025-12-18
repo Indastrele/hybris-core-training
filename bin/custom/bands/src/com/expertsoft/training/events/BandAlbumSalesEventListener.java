@@ -1,24 +1,22 @@
 package com.expertsoft.training.events;
 
 import com.expertsoft.training.model.NewsModel;
+import com.expertsoft.training.service.NewsService;
 import de.hybris.platform.servicelayer.event.impl.AbstractEventListener;
-import de.hybris.platform.servicelayer.model.ModelService;
-
-import java.util.Date;
 
 public class BandAlbumSalesEventListener extends AbstractEventListener<BandAlbumSalesEvent> {
 
     private static final String BAND_SALES_HEADLINE = "%s album sales exceed 50000";
     private static final String BAND_SALES_CONTENT = "%s album sales reported as %d";
-    private ModelService modelService;
+    private NewsService newsService;
 
-    public ModelService getModelService() {
-        return modelService;
+    public BandAlbumSalesEventListener() {
     }
 
-    public void setModelService(final ModelService modelService) {
-        this.modelService = modelService;
+    public void setNewsService(NewsService newsService) {
+        this.newsService = newsService;
     }
+
     @Override
     protected void onEvent(final BandAlbumSalesEvent event) {
         if (event == null) {
@@ -27,11 +25,8 @@ public class BandAlbumSalesEventListener extends AbstractEventListener<BandAlbum
 
         final String headline = String.format(BAND_SALES_HEADLINE, event.getName());
         final String content = String.format(BAND_SALES_CONTENT, event.getName(), event.getSales());
-        final NewsModel news = modelService.create(NewsModel.class);
-        news.setDate(new Date());
-        news.setHeadline(headline);
-        news.setContent(content);
 
-        modelService.save(news);
+        final NewsModel newsModel = newsService.createNewsModel(headline, content);
+        newsService.save(newsModel);
     }
 }

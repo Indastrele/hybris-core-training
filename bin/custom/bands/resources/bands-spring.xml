@@ -57,6 +57,7 @@
 
     <bean id="concerttourEventListener" class="com.expertsoft.training.events.NewBandEventListener" parent="abstractEventListener">
         <property name="modelService" ref="modelService" />
+        <property name="newsService" ref="newsService" />
     </bean>
 
     <bean id="bandAlbumSalesInterceptor" class="com.expertsoft.training.interceptors.BandAlbumSalesInterceptor" />
@@ -65,6 +66,9 @@
         <property name="typeCode" value="Band" />
     </bean>
     <bean id="bandAlbumSalesEventListener" class="com.expertsoft.training.events.BandAlbumSalesEventListener" parent="abstractEventListener" >
+        <property name="newsService" ref="newsService"/>
+    </bean>
+    <bean name="newsService" class="com.expertsoft.training.service.impl.DefaultNewsService">
         <property name="modelService" ref="modelService" />
     </bean>
 </beans>

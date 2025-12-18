@@ -5,9 +5,10 @@ import de.hybris.platform.servicelayer.impex.ImportConfig;
 import de.hybris.platform.servicelayer.impex.ImportResult;
 import de.hybris.platform.servicelayer.impex.ImportService;
 import de.hybris.platform.servicelayer.impex.impl.StreamBasedImpExResource;
-import java.io.InputStream;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import java.io.InputStream;
 
 @SystemSetup(extension = "bands")
 public class BandsCustomSetup {
@@ -47,14 +48,17 @@ public class BandsCustomSetup {
             LOG.info(message);
 
             final ImportConfig importConfig = new ImportConfig();
-            assert resourceAsStream != null;
-            importConfig.setScript(new StreamBasedImpExResource(resourceAsStream, "UTF-8"));
-            importConfig.setLegacyMode(Boolean.FALSE);
 
-            final ImportResult importResult = getImportService().importData(importConfig);
-            if (importResult.isError()) {
-                LOG.error(message + " FAILED");
-                return false;
+            if (resourceAsStream != null) {
+                importConfig.setScript(new StreamBasedImpExResource(resourceAsStream, "UTF-8"));
+
+                importConfig.setLegacyMode(Boolean.FALSE);
+
+                final ImportResult importResult = getImportService().importData(importConfig);
+                if (importResult.isError()) {
+                    LOG.error(message + " FAILED");
+                    return false;
+                }
             }
         } catch (final Exception e) {
             LOG.error(message + " FAILED", e);

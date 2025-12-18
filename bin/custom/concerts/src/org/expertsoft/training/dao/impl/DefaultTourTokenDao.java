@@ -1,6 +1,5 @@
 package org.expertsoft.training.dao.impl;
 
-import com.expertsoft.training.model.BandModel;
 import de.hybris.platform.servicelayer.search.FlexibleSearchQuery;
 import de.hybris.platform.servicelayer.search.FlexibleSearchService;
 import org.expertsoft.training.dao.TourTokenDao;
@@ -14,7 +13,6 @@ import java.util.Optional;
 public class DefaultTourTokenDao implements TourTokenDao {
 
     private static final String SELECT_FROM_WHERE_CODE = "SELECT {%s} FROM {%s} WHERE {%s}=?code";
-    private static final String SELECT_FROM = "SELECT {%s} FROM {%s}";
     private static final String CODE = "code";
     /**
      * Use SAP
@@ -28,6 +26,7 @@ public class DefaultTourTokenDao implements TourTokenDao {
         final String queryString = String.format(SELECT_FROM_WHERE_CODE, TourTokenModel.PK, TourTokenModel._TYPECODE, TourTokenModel.CODE);
         final FlexibleSearchQuery query = new FlexibleSearchQuery(queryString);
         query.addQueryParameter(CODE, code);
-        return flexibleSearchService.<TourTokenModel> search(query).getResult().stream().findFirst();
+        query.setCount(1);
+        return flexibleSearchService.<TourTokenModel> search(query).getResult().stream().findAny();
     }
 }
