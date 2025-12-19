@@ -7,6 +7,8 @@
 <body>
 <div class="container">
     <h1>400 Bad Request</h1>
+    <hr>
+    <p>${message}</p>
 </div>
 </body>
 </html>

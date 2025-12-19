@@ -3,14 +3,13 @@
  */
 package org.expertsoft.training.setup;
 
-import static org.expertsoft.training.constants.ConcertsConstants.PLATFORM_LOGO_CODE;
-
 import de.hybris.platform.core.initialization.SystemSetup;
+import org.expertsoft.training.constants.ConcertsConstants;
+import org.expertsoft.training.service.ConcertsService;
 
 import java.io.InputStream;
 
-import org.expertsoft.training.constants.ConcertsConstants;
-import org.expertsoft.training.service.ConcertsService;
+import static org.expertsoft.training.constants.ConcertsConstants.PLATFORM_LOGO_CODE;
 
 
 @SystemSetup(extension = ConcertsConstants.EXTENSIONNAME)

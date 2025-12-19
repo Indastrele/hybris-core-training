@@ -19,6 +19,9 @@
         <!-- constructor arg injection example -->
         <constructor-arg ref="bandsLogoService"/>
     </bean>
+    <bean id="BandsCustomSetup" class="com.expertsoft.training.setup.BandsCustomSetup" >
+        <property name="importService" ref="importService"/>
+    </bean>
 
     <bean id="bandsLogoService" class="com.expertsoft.training.service.impl.DefaultBandsLogoService">
         <!-- setter injection example -->
@@ -28,7 +31,7 @@
     </bean>
 
     <bean id="tourSummaryDataPopulator" class="com.expertsoft.training.populators.TourSummaryDataPopulator">
-
+        <property name="i18NService" ref="defaultI18NService"/>
     </bean>
 
     <bean id="bandPopulator" class="com.expertsoft.training.populators.BandPopulator">
@@ -48,5 +51,24 @@
     <bean id = "defaultBandFacade" class ="com.expertsoft.training.facades.impl.DefaultBandFacade" >
         <property name = "bandService" ref = "bandService" />
         <property name = "bandConverter" ref = "bandConverter" />
+        <property name="mediaService" ref="defaultMediaService"/>
+        <property name="configService" ref="defaultConfigurationService"/>
+    </bean>
+
+    <bean id="concerttourEventListener" class="com.expertsoft.training.events.NewBandEventListener" parent="abstractEventListener">
+        <property name="modelService" ref="modelService" />
+        <property name="newsService" ref="newsService" />
+    </bean>
+
+    <bean id="bandAlbumSalesInterceptor" class="com.expertsoft.training.interceptors.BandAlbumSalesInterceptor" />
+    <bean id="BandInterceptorMapping" class="de.hybris.platform.servicelayer.interceptor.impl.InterceptorMapping">
+        <property name="interceptor" ref="bandAlbumSalesInterceptor" />
+        <property name="typeCode" value="Band" />
+    </bean>
+    <bean id="bandAlbumSalesEventListener" class="com.expertsoft.training.events.BandAlbumSalesEventListener" parent="abstractEventListener" >
+        <property name="newsService" ref="newsService"/>
+    </bean>
+    <bean name="newsService" class="com.expertsoft.training.service.impl.DefaultNewsService">
+        <property name="modelService" ref="modelService" />
     </bean>
 </beans>

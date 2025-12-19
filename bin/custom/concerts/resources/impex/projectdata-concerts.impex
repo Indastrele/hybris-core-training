@@ -21,3 +21,6 @@ INSERT_UPDATE Concert;code[unique=true];name;date[dateformat=dd.MM.yyyy];venue;c
 ;20170104;Grand Tour - Gliwice;04.11.2017;"hybris Gliwice, Poland";indoor;201701;
 ;20170105;Grand Tour - Boulder;07.01.2018;"hybris Boulder, USA";indoor;201701;
 ;20170106;Grand Tour - Boston;;"hybris Boston, USA";;201701;
+
+INSERT_UPDATE TourToken;code[unique=true]
+;TT001

@@ -15,6 +15,10 @@
         <constructor-arg ref="concertsService"/>
     </bean>
 
+    <bean id="ConcertsCustomSetup" class="org.expertsoft.training.setup.ConcertsCustomSetup" >
+        <property name="importService" ref="importService"/>
+    </bean>
+
     <bean id="concertSummaryDataPopulator" class="org.expertsoft.training.populators.ConcertSummaryDataPopulator">
 
     </bean>
@@ -38,5 +42,22 @@
     <bean id = "defaultTourFacade" class ="org.expertsoft.training.facades.impl.DefaultTourFacade" >
         <property name="tourConverter" ref="tourConverter"/>
         <property name = "productService" ref = "productService"/>
+    </bean>
+
+    <bean id="concertDaysUntilAttributeHandler" class="org.expertsoft.training.attributehandlers.ConcertDaysUntilAttributeHandler">
+
+    </bean>
+
+    <bean id="defaultToutTokenDao" class="org.expertsoft.training.dao.impl.DefaultTourTokenDao">
+
+    </bean>
+
+    <alias name="defaultTourTokenService" alias="tourTokenService" />
+    <bean id="defaultTourTokenService" class="org.expertsoft.training.service.impl.DefaultTourTokenService">
+        <property name="modelService" ref="modelService"/>
+        <property name="tourTokenDao" ref="defaultToutTokenDao" />
+    </bean>
+    <bean id="tourTokenUpdateJob" class="org.expertsoft.training.jobs.TourTokenUpdateJob" parent="abstractJobPerformable">
+
     </bean>
 </beans>
