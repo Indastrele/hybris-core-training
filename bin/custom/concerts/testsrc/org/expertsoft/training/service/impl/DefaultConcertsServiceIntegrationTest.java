@@ -3,22 +3,19 @@
  */
 package org.expertsoft.training.service.impl;
 
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.expertsoft.training.constants.ConcertsConstants.PLATFORM_LOGO_CODE;
-
 import de.hybris.bootstrap.annotations.IntegrationTest;
 import de.hybris.platform.core.model.media.MediaModel;
 import de.hybris.platform.servicelayer.ServicelayerBaseTest;
 import de.hybris.platform.servicelayer.search.FlexibleSearchQuery;
 import de.hybris.platform.servicelayer.search.FlexibleSearchService;
-
-import javax.annotation.Resource;
-
+import org.expertsoft.training.service.ConcertsService;
 import org.junit.Before;
 import org.junit.Test;
 
-import org.expertsoft.training.service.ConcertsService;
-import org.expertsoft.training.service.impl.DefaultConcertsService;
+import javax.annotation.Resource;
+
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.expertsoft.training.constants.ConcertsConstants.PLATFORM_LOGO_CODE;
 
 
 /**
@@ -28,8 +25,8 @@ import org.expertsoft.training.service.impl.DefaultConcertsService;
  * in mind that by default it assumes that annotated field name matches the Spring Bean ID.
  */
 @IntegrationTest
-public class DefaultConcertsServiceIntegrationTest extends ServicelayerBaseTest
-{
+public class DefaultConcertsServiceIntegrationTest extends ServicelayerBaseTest {
+
 	@Resource
 	private ConcertsService concertsService;
 	@Resource
