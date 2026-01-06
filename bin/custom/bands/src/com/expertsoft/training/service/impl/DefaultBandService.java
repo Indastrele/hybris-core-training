@@ -24,14 +24,13 @@ public class DefaultBandService implements BandService {
     public BandModel getBandForCode(final String code) throws AmbiguousIdentifierException, UnknownIdentifierException
     {
         final List<BandModel> result = bandDao.findBandsByCode(code);
-        if (result.isEmpty())
-        {
+        if (result.isEmpty()) {
             throw new UnknownIdentifierException("Band with code '" + code + "' not found!");
         }
-        else if (result.size() > 1)
-        {
+        else if (result.size() > 1) {
             throw new AmbiguousIdentifierException("Band code '" + code + "' is not unique, " + result.size() + " bands found!");
         }
+
         return result.get(0);
     }
 

@@ -29,5 +29,12 @@
             <li><a href="https://localhost:9002/concerts/${tour.id}">${tour.tourName}</a></li>
         </c:forEach>
     </ul>
+    <hr>
+    <h3>Producers</h3>
+    <ul>
+        <c:forEach var="producer" items="${band.producers}">
+            <li><a href="https://localhost:9002/bands/producers/${producer.id}">${producer.name} ${producer.surname} ${producer.patronymic}</a></li>
+        </c:forEach>
+    </ul>
 </body>
 </html>
