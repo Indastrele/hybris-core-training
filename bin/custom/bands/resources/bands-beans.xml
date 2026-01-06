@@ -24,6 +24,16 @@
 		<property name="membersToInstruments" type="java.util.Map&lt;String,String&gt;"/>
 		<property name = "tours" type="java.util.List&lt;org.expertsoft.training.data.TourSummaryData&gt;"/>
 		<property name="imageURL" type="String" />
+		<property name="producers" type="java.util.List&lt;com.expertsoft.training.data.ProducerData&gt;"/>
+	</bean>
+	<bean class="com.expertsoft.training.data.ProducerData" >
+		<description>Data object representing producer</description>
+		<property name="id" type="String"/>
+		<property name="name" type="String"/>
+		<property name="surname" type="String"/>
+		<property name="patronymic" type="String"/>
+		<property name="description" type="String"/>
+		<property name="bands" type="java.util.List&lt;com.expertsoft.training.data.BandData&gt;"/>
 	</bean>
 	<bean class = "org.expertsoft.training.data.ConcertSummaryData">
 		<description >Data object for a concert summary</description>

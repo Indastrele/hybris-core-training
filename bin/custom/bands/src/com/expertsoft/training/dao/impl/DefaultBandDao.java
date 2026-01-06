@@ -38,6 +38,7 @@ public class DefaultBandDao implements BandDao {
         final String queryString = String.format(SELECT_FROM_WHERE_CODE, BandModel.PK, BandModel._TYPECODE, BandModel.CODE);
         final FlexibleSearchQuery query = new FlexibleSearchQuery(queryString);
         query.addQueryParameter(CODE, code);
+        query.setCount(1);
         return flexibleSearchService.<BandModel> search(query).getResult();
     }
 }

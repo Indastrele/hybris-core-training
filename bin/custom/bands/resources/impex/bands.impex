@@ -50,11 +50,16 @@ INSERT_UPDATE MusicType;code[unique=true];name[lang=en]
 ;MALE_VOCALS;Male vocals
 ;FEMALE_VOCALS;Female vocals
 
-INSERT_UPDATE Band;code[unique=true];name;albumSales;types(code);image(qualifier)
-;A001;yRock;1000000;ROCK, MALE_VOCALS;yRockImage
-;A006;yBand;;RNB, FEMALE_VOCALS;yBandImage
-;A003;yJazz;7;JAZZ, FEMALE_VOCALS, MALE_VOCALS;yJazzImage
-;A004;Banned;427;GOSPEL, FEMALE_VOCALS;BannedImage
-;A002;Sirken;2000;NINETIES;SirkenImage
-;A005;The Choir;49000;CHORAL, MALE_VOCALS;TheChoirImage
-;A007;The Quiet;1200;CLASSICAL;TheChoirImage
+INSERT_UPDATE Producer;code[unique=true];name;surname;patronymic;description
+;P001;John;Doe;;Unknown male producer
+;P002;Jane;Doe;;Unknown female producer
+;P003;Vasiliy;Vakulenko;Mihaylovich;Famous rapper and the owner of Gazgolder
+
+INSERT_UPDATE Band;code[unique=true];name;albumSales;types(code);image(qualifier);producers(code)
+;A001;yRock;1000000;ROCK, MALE_VOCALS;yRockImage;
+;A006;yBand;;RNB, FEMALE_VOCALS;yBandImage;P003, P001
+;A003;yJazz;7;JAZZ, FEMALE_VOCALS, MALE_VOCALS;yJazzImage;
+;A004;Banned;427;GOSPEL, FEMALE_VOCALS;BannedImage;P001, P002
+;A002;Sirken;2000;NINETIES;SirkenImage;
+;A005;The Choir;49000;CHORAL, MALE_VOCALS;TheChoirImage;P002
+;A007;The Quiet;1200;CLASSICAL;TheChoirImage;

@@ -34,8 +34,17 @@
         <property name="i18NService" ref="defaultI18NService"/>
     </bean>
 
+    <bean id="producerPopulator" class="com.expertsoft.training.populators.ProducerPopulator">
+
+    </bean>
+
+    <bean id="producerConverter" class="com.expertsoft.training.converters.ProducerConverter">
+        <property name="producerPopulator" ref="producerPopulator"/>
+    </bean>
+
     <bean id="bandPopulator" class="com.expertsoft.training.populators.BandPopulator">
         <property name="tourSummaryDataPopulator" ref="tourSummaryDataPopulator"/>
+        <property name="producerPopulator" ref="producerPopulator"/>
     </bean>
 
     <bean id="bandConverter" class="com.expertsoft.training.converters.BandConverter">
@@ -47,12 +56,23 @@
         <property name = "bandDao" ref = "bandDao" />
     </bean>
 
+    <alias name = "defaultProducerService" alias = "producerService" />
+    <bean id = "defaultProducerService" class = "com.expertsoft.training.service.impl.DefaultProducerService" >
+        <property name = "producerDao" ref = "producerDao" />
+    </bean>
+
     <alias name = "defaultBandFacade" alias = "bandFacade" />
     <bean id = "defaultBandFacade" class ="com.expertsoft.training.facades.impl.DefaultBandFacade" >
         <property name = "bandService" ref = "bandService" />
         <property name = "bandConverter" ref = "bandConverter" />
         <property name="mediaService" ref="defaultMediaService"/>
         <property name="configService" ref="defaultConfigurationService"/>
+    </bean>
+
+    <alias name="defaultProducerFacade" alias="producerFacade"/>
+    <bean id="defaultProducerFacade" class="com.expertsoft.training.facades.impl.DefaultProducerFacade">
+        <property name="producerService" ref="producerService"/>
+        <property name="producerConverter" ref="producerConverter"/>
     </bean>
 
     <bean id="concerttourEventListener" class="com.expertsoft.training.events.NewBandEventListener" parent="abstractEventListener">

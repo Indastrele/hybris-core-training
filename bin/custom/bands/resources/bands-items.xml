@@ -30,6 +30,16 @@
 				<modifiers read="true" write="true" search="true" optional="true" />
 			</targetElement>
 		</relation>
+
+		<relation code="Band2Producer" autocreate="true" generate="false" localized="false">
+			<deployment table="Band2Producer" typecode="30273" />
+			<sourceElement qualifier="bands" type="Band" collectiontype="set" cardinality="many" ordered="false">
+				<modifiers read="true" write="true" search="true" optional="true" />
+			</sourceElement>
+			<targetElement qualifier="producers" type="Producer" cardinality="many">
+				<modifiers read="true" write="true" search="true" optional="true" />
+			</targetElement>
+		</relation>
 	</relations>
 
 	<itemtypes>
@@ -98,6 +108,31 @@
 					<defaultvalue>
 						com.expertsoft.training.constraints.NotLoremIpsum.class
 					</defaultvalue>
+				</attribute>
+			</attributes>
+		</itemtype>
+
+		<itemtype code="Producer" autocreate="true" generate="true">
+			<deployment table="Producer" typecode="30272" />
+			<attributes>
+				<attribute qualifier="code" type="java.lang.String" >
+					<persistence type="property"/>
+				</attribute>
+
+				<attribute qualifier="name" type="java.lang.String" >
+					<persistence type="property"/>
+				</attribute>
+
+				<attribute qualifier="surname" type="java.lang.String" >
+					<persistence type="property"/>
+				</attribute>
+
+				<attribute qualifier="patronymic" type="java.lang.String" >
+					<persistence type="property"/>
+				</attribute>
+
+				<attribute qualifier="description" type="java.lang.String">
+					<persistence type="property" />
 				</attribute>
 			</attributes>
 		</itemtype>
