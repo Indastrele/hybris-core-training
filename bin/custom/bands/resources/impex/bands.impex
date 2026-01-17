@@ -12,6 +12,9 @@ INSERT_UPDATE Catalog;id[unique=true]
 INSERT_UPDATE CatalogVersion;catalog(id)[unique=true];version[unique=true];active;languages(isoCode);readPrincipals(uid)
 ;$productCatalog;Online;true;en;employeegroup
 
+INSERT_UPDATE SearchRestriction;code[unique=true];name[lang=en];query;principal(UID);restrictedType(code);active;generate
+;News_Search_Restriction;News Restriction;{catalogVersion} LIKE 'Online';admin;News;true;true
+
 INSERT_UPDATE Media;mediaFormat(qualifier);code[unique=true];@media[translator=de.hybris.platform.impex.jalo.media.MediaDataTranslator];mime[default='image/jpeg'];$catalogVersion
 ;bandList;rockSmall.jpg;$siteResource/rockSmall.jpg;;
 ;bandDetail;rockBig.jpg;$siteResource/rockBig.jpg;;
